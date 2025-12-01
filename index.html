@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Cardo:ital,wght@0,400;0,700;1,400&family=Forum&family=Great+Vibes&family=Jolly+Lodger&family=Lacquer&family=Lexend+Peta:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Cardo:ital,wght@0,400;0,700;1,400&family=Forum&family=Great+Vibes&family=Jolly+Lodger&family=Lacquer&family=Lexend+Peta:wght@100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Cricket</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header"><h1>-Cricket-</h1></div>
+    <div class="container-start">
+      <div class="cricket-startnumbers">
+        <label for="t1">#1</label>
+        <input id="t1" type="number" />
+        <label for="t2">#2</label>
+        <input id="t2" type="number" />
+        <label for="t3">#3</label>
+        <input id="t3" type="number" />
+        <label for="t4">#4</label>
+        <input id="t4" type="number" />
+        <label for="t5">#5</label>
+        <input id="t5" type="number" />
+        <label for="t6">#6</label>
+        <input id="t6" type="number" />
+        <div class="start-game">
+          <button id="startgame">Start</button>
+        </div>
+      </div>
+      <div class="cricket-startplayer">
+        <label for="newPlayer">#Name</label>
+        <input id="newPlayer" type="text" />
+        <button id="addPlayer">add</button>
+        <button id="clearList">clear list</button>
+        <div class="playerlist">
+          <p><u>-Playerlist-</u></p>
+          <ul class="players">
+            <li id="listPlayer"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-game">
+      <div class="container-player">
+        <div class="player">
+          <div class="player-info">
+            <div id="player-score" class="playerScore">0</div>
+            <div id="player-name" class="flex-center playerName">#name</div>
+          </div>
+          <div id="player-target-1" class="target flex-center"></div>
+          <div id="player-target-2" class="target flex-center"></div>
+          <div id="player-target-3" class="target flex-center"></div>
+          <div id="player-target-4" class="target flex-center"></div>
+          <div id="player-target-5" class="target flex-center"></div>
+          <div id="player-target-6" class="target flex-center"></div>
+          <div id="player-target-7" class="target flex-center"></div>
+        </div>
+      </div>
+      <div class="container-cricketnumbers">
+        <div class="cricketnumber">
+          <div class="null-score" id="null">
+            <div><img src="icons/icons8-löschen_white.svg" alt="" /></div>
+            <div></div>
+          </div>
+          <div class="undo" id="undo"></div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-1" class="singlenumber flex-center">12</div>
+          <div id="cricket-score-1-2" class="doublenumber flex-center">• •</div>
+          <div id="cricket-score-1-3" class="triplenumber flex-center">•••</div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-2" class="singlenumber flex-center">9</div>
+          <div id="cricket-score-2-2" class="doublenumber flex-center">• •</div>
+          <div id="cricket-score-2-3" class="triplenumber flex-center">•••</div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-3" class="singlenumber flex-center">6</div>
+          <div id="cricket-score-3-2" class="doublenumber flex-center">• •</div>
+          <div id="cricket-score-3-3" class="triplenumber flex-center">•••</div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-4" class="singlenumber flex-center">5</div>
+          <div id="cricket-score-4-2" class="doublenumber flex-center">• •</div>
+          <div id="cricket-score-4-3" class="triplenumber flex-center">•••</div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-5" class="singlenumber flex-center">3</div>
+          <div id="cricket-score-5-2" class="doublenumber flex-center">• •</div>
+          <div id="cricket-score-5-3" class="triplenumber flex-center">•••</div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-6" class="singlenumber flex-center">2</div>
+          <div id="cricket-score-6-2" class="doublenumber flex-center">• •</div>
+          <div id="cricket-score-6-3" class="triplenumber flex-center">•••</div>
+        </div>
+        <div class="cricketnumber">
+          <div id="cricket-score-7" class="singlenumber flex-center">Bull</div>
+          <div id="cricket-score-7-2" class="doublenumber flex-center">• •</div>
+          <div class="flex-center"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid lime; */
+}
+
+:root {
+  --clr-background: rgb(34, 37, 43);
+  --clr-primary: ;
+  --clr-secondary: rgba(22, 22, 22, 0.979);
+  --clr-accent-1: hsl(220, 12%, 20%);
+  --clr-accent-2: hsl(220, 12%, 30%);
+  --clr-accent-3: rgb(90, 98, 114);
+  --clr-text-1: rgb(217, 217, 217);
+  --clr-text-2: hsl(0, 0%, 95%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--clr-background);
+  font-family: "Rock Salt", cursive;
+  color: var(--clr-text-1);
+}
+
+.header {
+  position: absolute;
+  font-family: "Lacquer", system-ui;
+  top: 7vh;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 2rem;
+  z-index: 2;
+  width: 90%;
+  text-align: center;
+}
+
+.container-start {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  height: 100dvh;
+  width: 100%;
+  padding: 15vh 0vh 0vh;
+}
+
+.cricket-startnumbers {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cricket-startnumbers input {
+  position: relative;
+  border-radius: 100vh;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 2.5;
+  width: 100px;
+  text-align: center;
+  margin-bottom: 8px;
+  background: var(--clr-accent-3);
+}
+
+.cricket-startnumbers label {
+  position: relative;
+  top: 8px;
+  left: -1rem;
+  z-index: 1;
+  font-size: 0.5rem;
+  font-weight: bold;
+  background-color: var(--clr-background);
+  padding: 3px 10px;
+  border-radius: 100vh;
+}
+
+.cricket-startplayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cricket-startplayer input {
+  border-radius: 100vh;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 2.5;
+  width: 175px;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--clr-accent-3);
+}
+
+.cricket-startplayer label {
+  position: relative;
+  top: 8px;
+  left: -40px;
+  z-index: 1;
+  font-size: 0.5rem;
+  font-weight: bold;
+  background-color: var(--clr-background);
+  padding: 3px 10px;
+  border-radius: 100vh;
+}
+
+.cricket-startplayer button {
+  padding: 0.5rem 1rem;
+  font-family: "Lacquer", system-ui;
+  font-size: 1rem;
+  border-radius: 100vh;
+  border: none;
+  margin-bottom: 2rem;
+  color: var(--clr-background);
+  background: var(--clr-text-1);
+}
+
+.playerlist {
+  font-family: "Lacquer", system-ui;
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.players {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  flex-direction: column;
+  list-style: none;
+  font-size: 1.75rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.start-game {
+  position: absolute;
+  bottom: -25%;
+  left: 90%;
+  z-index: 3;
+}
+
+.start-game button {
+  padding: 1rem 2rem;
+  font-family: "Lacquer", system-ui;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 100vh;
+  border: none;
+  color: var(--clr-background);
+  background: var(--clr-text-1);
+}
+
+.container-game {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  height: 100vh;
+  width: 100%;
+}
+
+.container-player {
+  display: grid;
+  grid-auto-flow: column;
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.player {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.player-info {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+
+.playerName {
+  font-family: "Lacquer", system-ui;
+  font-size: 1.25rem;
+}
+
+.playerScore {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.null-score {
+  position: relative;
+  grid-column: span 2;
+  font-family: "Lacquer", system-ui;
+  font-size: 3rem;
+  background: var(--clr-accent-1);
+}
+
+.null-score img {
+  position: absolute;
+  height: 90%;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.undo {
+  background-image: url(icons/icons8-rückgängig-machen-64.png);
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.container-cricketnumbers {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.cricketnumber {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.target {
+  background: var(--clr-accent-1);
+}
+
+.singlenumber {
+  background: var(--clr-accent-1);
+  font-weight: bold;
+}
+
+.doublenumber {
+  background: var(--clr-accent-2);
+}
+
+.triplenumber {
+  background: var(--clr-accent-3);
+}
