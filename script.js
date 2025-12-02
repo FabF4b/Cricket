@@ -1,7 +1,6 @@
 let playerList = [];
 let cricketTargets = [];
 let displayPlayer = document.getElementById("listPlayer");
-
 let score1 = document.getElementById("cricket-score-1");
 let score12 = document.getElementById("cricket-score-1-2");
 let score13 = document.getElementById("cricket-score-1-3");
@@ -38,6 +37,7 @@ document.getElementById("addPlayer").addEventListener("click", () => {
 // clear player btn //
 document.getElementById("clearList").addEventListener("click", () => {
   playerList = [];
+  cricketTargets = [];
   displayPlayer.innerHTML = playerList;
 });
 
@@ -75,7 +75,6 @@ document.getElementById("startgame").addEventListener("click", () => {
     cricket_5 !== "",
     cricket_6 !== "" && playerList.length >= 2)
   ) {
-    console.log("geht!");
     displayCricketNumbers();
   }
 });
