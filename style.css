@@ -8,8 +8,8 @@
 :root {
   --clr-background: rgb(34, 37, 43);
   --clr-accent-1: hsl(220, 12%, 20%);
-  --clr-accent-2: hsl(220, 12%, 30%);
-  --clr-accent-3: rgb(90, 98, 114);
+  --clr-accent-2: hsl(220, 12%, 25%);
+  --clr-accent-3: hsla(220, 12%, 25%, 0.5);
   --clr-text-1: hsl(0, 0%, 85%);
   --clr-text-2: hsl(0, 0%, 70%);
 }
@@ -159,7 +159,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .container-game {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 55% 45%;
   height: 100dvh;
   width: 100%;
 }
@@ -182,6 +182,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: grid;
   grid-template-rows: 2fr 1fr;
   background: var(--clr-accent-1);
+  border-bottom: 1px dotted var(--clr-accent-3);
 }
 
 .playerName {
@@ -225,7 +226,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  border-left: 1px dotted var(--clr-text-2);
+  border-left: 1px dotted var(--clr-accent-3);
 }
 
 .cricketnumber {
@@ -241,17 +242,21 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .target {
   background: var(--clr-background);
+  border-bottom: 1px dotted var(--clr-accent-3);
 }
 
 .singlenumber {
   background: var(--clr-background);
   font-weight: bold;
+  border-bottom: 1px dotted var(--clr-accent-3);
 }
 
 .doublenumber {
-  background: var(--clr-accent-2);
+  background: var(--clr-accent-1);
+  border-bottom: 1px dotted var(--clr-accent-3);
 }
 
 .triplenumber {
-  background: var(--clr-accent-3);
+  background: var(--clr-accent-2);
+  border-bottom: 1px dotted var(--clr-accent-3);
 }
