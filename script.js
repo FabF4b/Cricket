@@ -1,47 +1,15 @@
 let playerList = [];
 let cricketTargets = [];
-let displayPlayer = document.getElementById("listPlayer");
+let Score = 0;
+let displayPlayerlist = document.getElementById("listPlayer");
+let displayName = document.getElementById("player-name");
 let score1 = document.getElementById("cricket-score-1");
-let score12 = document.getElementById("cricket-score-1-2");
-let score13 = document.getElementById("cricket-score-1-3");
 let score2 = document.getElementById("cricket-score-2");
-let score22 = document.getElementById("cricket-score-2-2");
-let score23 = document.getElementById("cricket-score-2-3");
 let score3 = document.getElementById("cricket-score-3");
-let score32 = document.getElementById("cricket-score-3-2");
-let score33 = document.getElementById("cricket-score-3-3");
 let score4 = document.getElementById("cricket-score-4");
-let score42 = document.getElementById("cricket-score-4-2");
-let score43 = document.getElementById("cricket-score-4-3");
 let score5 = document.getElementById("cricket-score-5");
-let score52 = document.getElementById("cricket-score-5-2");
-let score53 = document.getElementById("cricket-score-5-3");
 let score6 = document.getElementById("cricket-score-6");
-let score62 = document.getElementById("cricket-score-6-2");
-let score63 = document.getElementById("cricket-score-6-3");
 let score7 = document.getElementById("cricket-score-7");
-let score72 = document.getElementById("cricket-score-7-2");
-
-// add player btn //
-document.getElementById("addPlayer").addEventListener("click", () => {
-  const inputPlayer = document.getElementById("newPlayer");
-  const nameplayer = inputPlayer.value;
-
-  if (nameplayer !== "") {
-    playerList.push(nameplayer);
-    displayPlayer.innerHTML = playerList.join("<br>");
-  }
-  inputPlayer.value = "";
-});
-
-// clear player btn //
-document.getElementById("clearList").addEventListener("click", () => {
-  playerList = [];
-  cricketTargets = [];
-  displayPlayer.innerHTML = playerList;
-});
-
-// start game btn //
 const target_1 = document.getElementById("t1");
 const target_2 = document.getElementById("t2");
 const target_3 = document.getElementById("t3");
@@ -49,7 +17,38 @@ const target_4 = document.getElementById("t4");
 const target_5 = document.getElementById("t5");
 const target_6 = document.getElementById("t6");
 
+// add player btn //
+document.getElementById("addPlayer").addEventListener("click", () => {
+  const inputPlayername = document.getElementById("newPlayer");
+  const playername = inputPlayername.value;
+
+  if (playername !== "") {
+    playerList.push(playername);
+    displayPlayerlist.innerHTML = playerList.join("<br>");
+  }
+  inputPlayername.value = "";
+});
+
+// clear player btn //
+document.getElementById("clearList").addEventListener("click", () => {
+  playerList = [];
+  cricketTargets = [];
+  displayPlayerlist.innerHTML = playerList;
+});
+
+// start game btn //
 document.getElementById("startgame").addEventListener("click", () => {
+  if (playerList.length >= 2) {
+    createCricketArray();
+    displayCricketNumbers();
+    playerList.forEach(() => {
+      addPlayerColum();
+    });
+  }
+});
+
+// target Array erstellen und sortieren //
+function createCricketArray() {
   const cricket_1 = target_1.value;
   const cricket_2 = target_2.value;
   const cricket_3 = target_3.value;
@@ -66,21 +65,9 @@ document.getElementById("startgame").addEventListener("click", () => {
     cricket_6
   );
   cricketTargets.sort((a, b) => b - a);
-
-  if (
-    (cricket_1 !== "",
-    cricket_2 !== "",
-    cricket_3 !== "",
-    cricket_4 !== "",
-    cricket_5 !== "",
-    cricket_6 !== "" && playerList.length >= 2)
-  ) {
-    displayCricketNumbers();
-  }
-});
+}
 
 // cricketzahlen dem board hinzufügeb (single-werte) //
-
 function displayCricketNumbers() {
   score1.innerHTML = cricketTargets[0];
   score2.innerHTML = cricketTargets[1];
@@ -90,4 +77,27 @@ function displayCricketNumbers() {
   score6.innerHTML = cricketTargets[5];
 }
 
-// display double-werte //
+// spieler block unten hinzufügen //
+function addPlayerColum() {
+  const playerContainer = document.getElementById("container-player");
+  const playerDiv = document.createElement("div");
+  const playerInfo = document.createElement("div");
+  const playerScore = document.createElement("div");
+  const playerName = document.createElement("div");
+
+  playerDiv.classList.add("player");
+  playerInfo.classList.add("player-info");
+  playerScore.classList.add("playerScore");
+  playerName.classList.add("playerName", "flex-center");
+
+  playerContainer.appendChild(playerDiv);
+  playerDiv.prepend(playerInfo);
+  playerInfo.appendChild(playerScore);
+  playerInfo.appendChild(playerName);
+
+  for (let i = 0; i < 7; i++) {
+    const playerTarget = document.createElement("div");
+    playerTarget.classList.add("target");
+    playerDiv.appendChild(playerTarget);
+  }
+}
