@@ -11,7 +11,7 @@
   --clr-accent-2: hsl(0, 0%, 25%);
   --clr-accent-3: hsl(0, 0%, 30%);
   --clr-text-1: hsl(0, 0%, 85%);
-  --clr-text-2: hsl(0, 0%, 70%);
+  --clr-text-2: hsl(0, 0%, 60%);
 }
 
 html {
@@ -68,6 +68,7 @@ body {
   text-align: center;
   margin-bottom: 8px;
   background: var(--clr-accent-1);
+  color: var(--clr-text-1);
 }
 
 .cricket-startnumbers label {
@@ -78,6 +79,7 @@ body {
   font-size: 0.5rem;
   font-weight: bold;
   background-color: var(--clr-background);
+  color: var(--clr-text-2);
   padding: 3px 10px;
   border-radius: 100vh;
 }
@@ -99,6 +101,7 @@ body {
   text-align: center;
   margin-bottom: 1rem;
   background: var(--clr-accent-1);
+  color: var(--clr-text-1);
 }
 
 .cricket-startplayer label {
@@ -109,6 +112,7 @@ body {
   font-size: 0.5rem;
   font-weight: bold;
   background-color: var(--clr-background);
+  color: var(--clr-text-2);
   padding: 3px 10px;
   border-radius: 100vh;
 }

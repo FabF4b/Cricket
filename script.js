@@ -10,6 +10,7 @@ let score4 = document.getElementById("cricket-score-4");
 let score5 = document.getElementById("cricket-score-5");
 let score6 = document.getElementById("cricket-score-6");
 let score7 = document.getElementById("cricket-score-7");
+const playerContainer = document.getElementById("container-player");
 const target_1 = document.getElementById("t1");
 const target_2 = document.getElementById("t2");
 const target_3 = document.getElementById("t3");
@@ -27,6 +28,7 @@ document.getElementById("addPlayer").addEventListener("click", () => {
     displayPlayerlist.innerHTML = playerList.join("<br>");
   }
   inputPlayername.value = "";
+  addPlayerColum(playername);
 });
 
 // clear player btn //
@@ -40,10 +42,7 @@ document.getElementById("clearList").addEventListener("click", () => {
 document.getElementById("startgame").addEventListener("click", () => {
   if (playerList.length >= 2) {
     createCricketArray();
-    displayCricketNumbers();
-    playerList.forEach(() => {
-      addPlayerColum();
-    });
+    displayCricketArray();
   }
 });
 
@@ -68,7 +67,7 @@ function createCricketArray() {
 }
 
 // cricketzahlen dem board hinzufügeb (single-werte) //
-function displayCricketNumbers() {
+function displayCricketArray() {
   score1.innerHTML = cricketTargets[0];
   score2.innerHTML = cricketTargets[1];
   score3.innerHTML = cricketTargets[2];
@@ -78,8 +77,7 @@ function displayCricketNumbers() {
 }
 
 // spieler block unten hinzufügen //
-function addPlayerColum() {
-  const playerContainer = document.getElementById("container-player");
+function addPlayerColum(playername) {
   const playerDiv = document.createElement("div");
   const playerInfo = document.createElement("div");
   const playerScore = document.createElement("div");
@@ -89,6 +87,7 @@ function addPlayerColum() {
   playerInfo.classList.add("player-info");
   playerScore.classList.add("playerScore");
   playerName.classList.add("playerName", "flex-center");
+  playerName.id = playername;
 
   playerContainer.appendChild(playerDiv);
   playerDiv.prepend(playerInfo);
@@ -100,4 +99,6 @@ function addPlayerColum() {
     playerTarget.classList.add("target");
     playerDiv.appendChild(playerTarget);
   }
+  playerName.innerHTML = playername;
+  playerScore.innerHTML = Score;
 }
