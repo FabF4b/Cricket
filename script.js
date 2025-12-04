@@ -1,59 +1,73 @@
 let playerList = [];
 let cricketTargets = [];
-let Score = 0;
-let displayPlayerlist = document.getElementById("listPlayer");
-let displayName = document.getElementById("player-name");
-let score1 = document.getElementById("cricket-score-1");
-let score2 = document.getElementById("cricket-score-2");
-let score3 = document.getElementById("cricket-score-3");
-let score4 = document.getElementById("cricket-score-4");
-let score5 = document.getElementById("cricket-score-5");
-let score6 = document.getElementById("cricket-score-6");
-let score7 = document.getElementById("cricket-score-7");
+let currentScore = 0;
 const playerContainer = document.getElementById("container-player");
-const target_1 = document.getElementById("t1");
-const target_2 = document.getElementById("t2");
-const target_3 = document.getElementById("t3");
-const target_4 = document.getElementById("t4");
-const target_5 = document.getElementById("t5");
-const target_6 = document.getElementById("t6");
 
-// add player btn //
+// add player btn - spieler hinzufügen //
 document.getElementById("addPlayer").addEventListener("click", () => {
-  const inputPlayername = document.getElementById("newPlayer");
-  const playername = inputPlayername.value;
-
-  if (playername !== "") {
-    playerList.push(playername);
-    displayPlayerlist.innerHTML = playerList.join("<br>");
+  const newPlayer = document.getElementById("newPlayer");
+  const namePlayer = newPlayer.value;
+  if (namePlayer !== "") {
+    playerList.push({
+      name: `${namePlayer}`,
+      score: 0,
+    });
   }
-  inputPlayername.value = "";
-  addPlayerColum(playername);
+  newPlayer.value = "";
+  showPlayerlist();
 });
 
-// clear player btn //
-document.getElementById("clearList").addEventListener("click", () => {
-  playerList = [];
-  cricketTargets = [];
-  displayPlayerlist.innerHTML = playerList;
-});
+// spieler in liste anzeigen //
+function showPlayerlist() {
+  const namen = playerList.map((player) => player.name);
+  document.getElementById("player-list").innerHTML = namen.join("<br>");
+}
 
-// start game btn //
+// spieler block unten hinzufügen //
+function addPlayerColum(namePlayer) {
+  const newPlayerDiv = document.createElement("div");
+  const newPlayerInfo = document.createElement("div");
+  const newPlayerScore = document.createElement("div");
+  const newPlayerName = document.createElement("div");
+
+  for (let i = 0; i < 7; i++) {
+    const playerTarget = document.createElement("div");
+    playerTarget.classList.add("target");
+    newPlayerDiv.appendChild(playerTarget);
+    playerTarget.id = namePlayer + i;
+  }
+  newPlayerDiv.classList.add("player");
+  newPlayerInfo.classList.add("player-info");
+  newPlayerScore.classList.add("playerScore");
+  newPlayerName.classList.add("playerName", "flex-center");
+  newPlayerName.id = namePlayer;
+  newPlayerScore.id = namePlayer + "score";
+
+  playerContainer.appendChild(newPlayerDiv);
+  newPlayerDiv.prepend(newPlayerInfo);
+  newPlayerInfo.appendChild(newPlayerScore);
+  newPlayerInfo.appendChild(newPlayerName);
+  showPlayerstats(namePlayer);
+}
+
+// start btn //
 document.getElementById("startgame").addEventListener("click", () => {
-  if (playerList.length >= 2) {
-    createCricketArray();
-    displayCricketArray();
-  }
+  playerList.forEach((player) => addPlayerColum(player.name));
 });
+
+function showPlayerstats(namePlayer) {
+  document.getElementById(`${namePlayer}`).innerHTML = namePlayer;
+  document.getElementById(`${namePlayer + "score"}`).innerHTML = 0;
+}
 
 // target Array erstellen und sortieren //
 function createCricketArray() {
-  const cricket_1 = target_1.value;
-  const cricket_2 = target_2.value;
-  const cricket_3 = target_3.value;
-  const cricket_4 = target_4.value;
-  const cricket_5 = target_5.value;
-  const cricket_6 = target_6.value;
+  const cricket_1 = document.getElementById("t1").value;
+  const cricket_2 = document.getElementById("t2").value;
+  const cricket_3 = document.getElementById("t3").value;
+  const cricket_4 = document.getElementById("t4").value;
+  const cricket_5 = document.getElementById("t5").value;
+  const cricket_6 = document.getElementById("t6").value;
 
   cricketTargets.push(
     cricket_1,
@@ -68,6 +82,13 @@ function createCricketArray() {
 
 // cricketzahlen dem board hinzufügeb (single-werte) //
 function displayCricketArray() {
+  const score1 = document.getElementById("cricket-score-1");
+  const score2 = document.getElementById("cricket-score-2");
+  const score3 = document.getElementById("cricket-score-3");
+  const score4 = document.getElementById("cricket-score-4");
+  const score5 = document.getElementById("cricket-score-5");
+  const score6 = document.getElementById("cricket-score-6");
+
   score1.innerHTML = cricketTargets[0];
   score2.innerHTML = cricketTargets[1];
   score3.innerHTML = cricketTargets[2];
@@ -76,29 +97,7 @@ function displayCricketArray() {
   score6.innerHTML = cricketTargets[5];
 }
 
-// spieler block unten hinzufügen //
-function addPlayerColum(playername) {
-  const playerDiv = document.createElement("div");
-  const playerInfo = document.createElement("div");
-  const playerScore = document.createElement("div");
-  const playerName = document.createElement("div");
-
-  playerDiv.classList.add("player");
-  playerInfo.classList.add("player-info");
-  playerScore.classList.add("playerScore");
-  playerName.classList.add("playerName", "flex-center");
-  playerName.id = playername;
-
-  playerContainer.appendChild(playerDiv);
-  playerDiv.prepend(playerInfo);
-  playerInfo.appendChild(playerScore);
-  playerInfo.appendChild(playerName);
-
-  for (let i = 0; i < 7; i++) {
-    const playerTarget = document.createElement("div");
-    playerTarget.classList.add("target");
-    playerDiv.appendChild(playerTarget);
-  }
-  playerName.innerHTML = playername;
-  playerScore.innerHTML = Score;
+function hitTarget(score) {
+  currentScore = currentScore + score;
+  console.log(currentScore);
 }

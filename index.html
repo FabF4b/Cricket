@@ -61,7 +61,11 @@
         <div class="cricketnumber">
           <div class="null-score" id="null">
             <div>
-              <img src="icons/icons8-löschen_white.svg" alt="" />
+              <img
+                onclick="hitTarget(0)"
+                src="icons/icons8-löschen_white.svg"
+                alt=""
+              />
             </div>
             <div></div>
           </div>
@@ -70,38 +74,122 @@
           </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-1" class="singlenumber flex-center">0</div>
-          <div id="cricket-score-1-2" class="doublenumber flex-center">• •</div>
-          <div id="cricket-score-1-3" class="triplenumber flex-center">•••</div>
+          <div id="cricket-score-1" class="singlenumber flex-center"></div>
+          <div
+            id="cricket-score-1-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(cricketTargets[0]*2)"
+          >
+            • •
+          </div>
+          <div
+            id="cricket-score-1-3"
+            class="triplenumber flex-center"
+            onclick="hitTarget(cricketTargets[0]*3)"
+          >
+            •••
+          </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-2" class="singlenumber flex-center">0</div>
-          <div id="cricket-score-2-2" class="doublenumber flex-center">• •</div>
-          <div id="cricket-score-2-3" class="triplenumber flex-center">•••</div>
+          <div id="cricket-score-2" class="singlenumber flex-center"></div>
+          <div
+            id="cricket-score-2-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(cricketTargets[1]*2)"
+          >
+            • •
+          </div>
+          <div
+            id="cricket-score-2-3"
+            class="triplenumber flex-center"
+            onclick="hitTarget(cricketTargets[1]*3)"
+          >
+            •••
+          </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-3" class="singlenumber flex-center">0</div>
-          <div id="cricket-score-3-2" class="doublenumber flex-center">• •</div>
-          <div id="cricket-score-3-3" class="triplenumber flex-center">•••</div>
+          <div id="cricket-score-3" class="singlenumber flex-center"></div>
+          <div
+            id="cricket-score-3-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(cricketTargets[2]*2)"
+          >
+            • •
+          </div>
+          <div
+            id="cricket-score-3-3"
+            class="triplenumber flex-center"
+            onclick="hitTarget(cricketTargets[2]*3)"
+          >
+            •••
+          </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-4" class="singlenumber flex-center">0</div>
-          <div id="cricket-score-4-2" class="doublenumber flex-center">• •</div>
-          <div id="cricket-score-4-3" class="triplenumber flex-center">•••</div>
+          <div id="cricket-score-4" class="singlenumber flex-center"></div>
+          <div
+            id="cricket-score-4-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(cricketTargets[3]*2)"
+          >
+            • •
+          </div>
+          <div
+            id="cricket-score-4-3"
+            class="triplenumber flex-center"
+            onclick="hitTarget(cricketTargets[3]*3)"
+          >
+            •••
+          </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-5" class="singlenumber flex-center">0</div>
-          <div id="cricket-score-5-2" class="doublenumber flex-center">• •</div>
-          <div id="cricket-score-5-3" class="triplenumber flex-center">•••</div>
+          <div id="cricket-score-5" class="singlenumber flex-center"></div>
+          <div
+            id="cricket-score-5-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(cricketTargets[4]*2)"
+          >
+            • •
+          </div>
+          <div
+            id="cricket-score-5-3"
+            class="triplenumber flex-center"
+            onclick="hitTarget(cricketTargets[4]*3)"
+          >
+            •••
+          </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-6" class="singlenumber flex-center">0</div>
-          <div id="cricket-score-6-2" class="doublenumber flex-center">• •</div>
-          <div id="cricket-score-6-3" class="triplenumber flex-center">•••</div>
+          <div id="cricket-score-6" class="singlenumber flex-center"></div>
+          <div
+            id="cricket-score-6-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(cricketTargets[5]*2)"
+          >
+            • •
+          </div>
+          <div
+            id="cricket-score-6-3"
+            class="triplenumber flex-center"
+            onclick="hitTarget(cricketTargets[5]*3)"
+          >
+            •••
+          </div>
         </div>
         <div class="cricketnumber">
-          <div id="cricket-score-7" class="singlenumber flex-center">Bull</div>
-          <div id="cricket-score-7-2" class="doublenumber flex-center">• •</div>
+          <div
+            id="cricket-score-7"
+            class="singlenumber flex-center"
+            onclick="hitTarget(25)"
+          >
+            Bull
+          </div>
+          <div
+            id="cricket-score-7-2"
+            class="doublenumber flex-center"
+            onclick="hitTarget(50)"
+          >
+            • •
+          </div>
           <div class="flex-center"></div>
         </div>
       </div>
