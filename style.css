@@ -12,6 +12,9 @@
   --clr-accent-3: hsl(0, 0%, 30%);
   --clr-text-1: hsl(0, 0%, 85%);
   --clr-text-2: hsl(0, 0%, 60%);
+  --clr-shadow-1: hsla(0, 0%, 1%, 0.4);
+  --clr-shadow-2: hsla(0, 0%, 27%, 0.4);
+  --clr-shadow-3: hsla(0, 0%, 50%, 0.4);
 }
 
 html {
@@ -126,6 +129,7 @@ body {
   margin-bottom: 2rem;
   color: var(--clr-background);
   background: var(--clr-text-1);
+  cursor: pointer;
 }
 
 .playerlist {
@@ -150,6 +154,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .start-game {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -165,6 +170,27 @@ input[type="number"]::-webkit-outer-spin-button {
   border: none;
   color: var(--clr-background);
   background: var(--clr-text-1);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.start-game button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50%;
+  width: 0;
+  height: 4.4rem;
+  border-radius: 100vh;
+  background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+  transition: 0.3s ease;
+  z-index: -1;
+}
+
+button:hover::before {
+  width: 9.1rem;
+  transform: rotate(180deg);
 }
 
 .container-game {
@@ -273,11 +299,15 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: bold;
   border-bottom: 1px dotted var(--clr-accent-3);
   border-left: 2px solid var(--clr-accent-3);
+  box-shadow: 8px 8px 12px var(--clr-shadow-1);
+  z-index: 2;
 }
 
 .doublenumber {
   background: var(--clr-accent-1);
   border-bottom: 1px dotted var(--clr-accent-3);
+  box-shadow: 8px 8px 12px var(--clr-shadow-1);
+  z-index: 1;
 }
 
 .triplenumber {

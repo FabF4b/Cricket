@@ -1,7 +1,6 @@
 let playerList = [];
 let cricketTargets = [];
 let currentScore = 0;
-const playerContainer = document.getElementById("container-player");
 
 // add player btn - spieler hinzufügen //
 document.getElementById("addPlayer").addEventListener("click", () => {
@@ -15,6 +14,14 @@ document.getElementById("addPlayer").addEventListener("click", () => {
   }
   newPlayer.value = "";
   showPlayerlist();
+  console.log(playerList);
+});
+
+// clear btn - liste löschen //
+document.getElementById("clearList").addEventListener("click", () => {
+  playerList = [];
+  document.getElementById("player-list").innerHTML = playerList;
+  console.log(playerList);
 });
 
 // spieler in liste anzeigen //
@@ -25,6 +32,7 @@ function showPlayerlist() {
 
 // spieler block unten hinzufügen //
 function addPlayerColum(namePlayer) {
+  const playerContainer = document.getElementById("container-player");
   const newPlayerDiv = document.createElement("div");
   const newPlayerInfo = document.createElement("div");
   const newPlayerScore = document.createElement("div");
@@ -53,6 +61,7 @@ function addPlayerColum(namePlayer) {
 // start btn //
 document.getElementById("startgame").addEventListener("click", () => {
   playerList.forEach((player) => addPlayerColum(player.name));
+  createCricketArray();
 });
 
 function showPlayerstats(namePlayer) {
@@ -78,6 +87,7 @@ function createCricketArray() {
     cricket_6
   );
   cricketTargets.sort((a, b) => b - a);
+  displayCricketArray();
 }
 
 // cricketzahlen dem board hinzufügeb (single-werte) //
